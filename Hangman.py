@@ -1,32 +1,53 @@
 
 
-import random
+"""
+
+Hangman GUI
+
+Developing simple GUI for hangman game
+
+To do:
+    implement basic GUI - done
+
+"""
+
+import PySimpleGUI as sg
+from random import choice as rnd
 from words import words
 
 guessed_word = []
-guessed_letters = [] #
-word = [i for i in random.choice(words) for y in i] # random word to guess
+guessed_letters = []
+
+word = [i for i in rnd(words) for y in i]  # random word to guess
 
 for i in range(len(word)):
-    guessed_word.append('__') # word interface. '__' as unguessed letters
+    guessed_word.append('__')  # word interface. '__' as guessed letters
 
-tries_left = len(word) * 2 # tries left 
-while '__' in guessed_word: # loop keeps going while it still has '__'
+tries_left = len(word) * 2  # tries left
+while '__' in guessed_word:  # loop keeps going while it still has '__'
     
-    # State of game 
-    print(f'Guessed letters: {guessed_letters} count: {len(guessed_letters)}\n\
-Tries left: {tries_left}\nWord: {guessed_word}')
-   
+    # State of game, guess letter
+    layout = [
+        [sg.Text(
+            f'Guessed letters: {guessed_letters}\ncount: {len(guessed_letters)}\n\n'
+            f'Tries left: {tries_left}\nWord: {guessed_word}\nGuess one letter:')],
+        [sg.InputText()],
+        [sg.Ok()]
+    ]
+
+    window = sg.Window('Hangman', layout)
+    value = window.read()
+    window.close()
+
+    guess = (value[1])[0]
+
     # If tries over = game over
     if tries_left == 0:
-        print(f'\nYou LOST! Out of tries.\nThe word was: {word}')
+        sg.popup(f'\nYou LOST! Out of tries.\nThe word was: {word}')
         exit()
-        
-    # guess letter  
-    guess = input('\nGuess one letter: ')
-    
+
     if len(guess) > 1:    # if letter too short, restart loop
-        print('Too long! One letter only!')
+        sg.popup('Too long! One letter only!')
         
     elif guess in word:   # if letter occurs in word, start check
         index_count = -1
@@ -38,11 +59,10 @@ Tries left: {tries_left}\nWord: {guessed_word}')
                 guessed_word[index_count] = guess
     
     else:    # when wrong letter then else block
-        print('No such letter in word')
+        sg.popup('No such letter in word')
         guessed_letters.append(guess)
         tries_left -= 1
     
     # if no '__' in guessed_word, loop ends and game won!
-print('\nYou WON!')
-print(f'Word: {guessed_word}')
 
+sg.popup(f'\nYou WON!\nWord: {guessed_word}')
