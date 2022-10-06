@@ -2,12 +2,12 @@
 
 """
 
-Hangman GUI
+Hangman - GUI
 
-Developing simple GUI for hangman game
-
-To do:
-    implement basic GUI - done
+using own words module
+To-do:
+    Get a better representation on list of words. Scraping?
+    Add pictures of hanging.
 
 """
 
