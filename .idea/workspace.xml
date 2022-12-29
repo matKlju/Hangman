@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb24838f-e942-4ba7-b5dd-fff6fd0bd1c6" name="Changes" comment="Cleaned it up a bit">
+      <change beforePath="$PROJECT_DIR$/.idea/Hangman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Hangman.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +36,7 @@
 }</component>
   <component name="RunManager">
     <configuration name="Hangman" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Hangman" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -44,7 +47,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hangman.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
