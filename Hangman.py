@@ -1,11 +1,8 @@
-
 """
 
-Hangman - GUI
+Hangman
 
-using own words module
 To-do:
-    Get a better representation on list of words. Scraping?
     Add pictures of hanging.
 
 """
@@ -15,6 +12,7 @@ from random import choice as rnd
 from words import words
 
 guessed_word = []
+
 guessed_letters = []
 
 word = [i for i in rnd(words) for y in i]  # random word to guess
@@ -23,6 +21,7 @@ for i in range(len(word)):
     guessed_word.append('__')  # word interface. '__' as guessed letters
 
 tries_left = len(word) * 2  # tries left
+
 while '__' in guessed_word:  # loop keeps going while it still has '__'
     
     # State of game, guess letter
@@ -45,7 +44,7 @@ while '__' in guessed_word:  # loop keeps going while it still has '__'
         sg.popup(f'\nYou LOST! Out of tries.\nThe word was: {word}')
         exit()
 
-    if len(guess) > 1:    # if letter too short, restart loop
+    if len(guess) > 1:    # if more than one letter, restart loop
         sg.popup('Too long! One letter only!')
         
     elif guess in word:   # if letter occurs in word, start check
@@ -62,6 +61,6 @@ while '__' in guessed_word:  # loop keeps going while it still has '__'
         guessed_letters.append(guess)
         tries_left -= 1
     
-    # if no '__' in guessed_word, loop ends and game won!
+    # if no '__' in guessed_word, loop ends and game won or lost!
 
 sg.popup(f'\nYou WON!\nWord: {guessed_word}')
